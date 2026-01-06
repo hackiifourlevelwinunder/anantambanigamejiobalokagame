@@ -1,0 +1,21 @@
+
+<h2 id="status">Flying...</h2>
+<div id="x">1.00x</div>
+<script>
+const pool=[1.2,2.5,4.5,7.5,10.2];
+let target=pool[Math.floor(Math.random()*pool.length)];
+let cur=1;
+function run(){
+  cur=1; target=pool[Math.floor(Math.random()*pool.length)];
+  let t=setInterval(()=>{
+    cur+=0.05;
+    x.innerText=cur.toFixed(2)+"x";
+    if(cur>=target){
+      clearInterval(t);
+      status.innerText="CRASH";
+      setTimeout(()=>{status.innerText="Flying...";run()},30000);
+    }
+  },200);
+}
+run();
+</script>
